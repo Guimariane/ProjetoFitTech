@@ -64,8 +64,8 @@
               }
             })
             .then((response) => {
-              local.Storage.setItem("")
-              local.Storage.setItem("")
+              local.Storage.setItem('sessions_token', response.data.token)
+              local.Storage.setItem('sessions_name', response.data.name)
 
               alert("Login realizado com sucesso! Redirecionando para a Home...")
               this.$router.push('/home')
