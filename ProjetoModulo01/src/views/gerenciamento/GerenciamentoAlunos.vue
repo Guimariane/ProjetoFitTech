@@ -1,6 +1,7 @@
 <template>
     <div>
-         <h2>Exercícios</h2>
+         <h2>Alunos</h2>
+         <v-btn type="submit" block class="mt-2"><router-link to='/cadastroalunos'>Novo</router-link></v-btn>
  
          <v-card
              class="mx-auto"
@@ -35,7 +36,7 @@
              <tbody>
              <tr v-for="student in students" :key="student.id">
                  <td>{{ student.name }} </td>
-                 <td><v-btn class="d-flex flex-row align-center justify-space-around" size="large">Montar Treino</v-btn>
+                 <td><v-btn class="d-flex flex-row align-center justify-space-around" size="large"><router-link to='/visualizacaotreinos'>Montar Treino</router-link></v-btn>
                      <v-btn class="d-flex flex-row align-center justify-space-around" size="large" @click="ver(student.id)">Ver Informações</v-btn></td>
              </tr>
              </tbody>
@@ -65,10 +66,10 @@
              url:'http://localhost:3000/students',
              method: 'GET',
          })
-     .then((response) => {
+        .then((response) => {
          this.students = response.data.students
      })
-     .catch(() => {
+        .catch(() => {
          console.log("Deu ruim")
      })},
  
