@@ -1,3 +1,3 @@
 <template>
-    <div></div>  
+    <div>PÁGINA DA VISUALIZAÇÃO DE TREIRO DA PESSOA</div>  
 </template>
