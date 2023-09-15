@@ -41,8 +41,8 @@
 
 <script>
 
-import Menu from '../menu/Menu.Vue';
-import {captureErrorYup} from '../../utils/generalfunctions'
+import Menu from '../menu/Menu.vue'
+import {captureErrorYup} from '../../utils/generalfunctions.js'
 import * as yup from 'yup'
 
     export default {
