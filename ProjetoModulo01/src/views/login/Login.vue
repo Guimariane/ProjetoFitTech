@@ -6,6 +6,7 @@
         </div>
   
       <h1>Faça o seu login aqui!</h1>
+      <p>Preencha as informações abaixo!</p>
   
         <div>
             <input placeholder="Digite o seu e-mail" v-model="email">
