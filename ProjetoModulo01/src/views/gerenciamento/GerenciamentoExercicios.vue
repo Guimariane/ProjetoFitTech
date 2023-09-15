@@ -2,24 +2,14 @@
    <div>
         <h2>Exercícios</h2>
 
-        <v-card
-            class="mx-auto"
-            color="grey-lighten-3"
-            max-width="400"
-        >
-            <v-card-text>
-            <v-text-field
-                :loading="loading"
-                density="compact"
-                variant="solo"
-                label="Search templates"
-                append-inner-icon="mdi-magnify"
-                single-line
-                hide-details
-                @click:append-inner="onClick"
-            ></v-text-field>
-            </v-card-text>
-        </v-card>
+        <v-sheet width="300" class="mx-auto">
+            <v-form @submit.prevent = "CadastrarExercicio">
+                <v-text-field
+                    v-model="firstName"
+                ></v-text-field>
+                <v-btn type="submit" block class="mt-2">Cadastrar</v-btn>
+            </v-form>
+         </v-sheet>
 
         <v-table fixed-header>
             <thead>
@@ -30,8 +20,8 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for="student in students" :key="student.id">
-                <td>{{ student.name }} </td>
+            <tr v-for="workout in workouts" :key="workout.id">
+                <td>{{ workout.description }} </td>
             </tr>
             </tbody>
 
@@ -41,32 +31,68 @@
 
 <script>
 import axios from 'axios'
+import {captureErrorYup} from '../../utils/generalfunctions.js'
+import * as yup from 'yup'
 
 
 export default {
     data () {
         return {
-            student: {},
-            students: [],
-            workout: ''
+            workouts: [],
+            workout: {},
+            description: ''
         }
     },
+    
+    methods: {
+        CadastrarExercicio (){
+            try{
+                    const schema = yup.object().shape({
+                        description: yup.string().required("Campo Obrigatório!")
+                    })
+                    
+                    schema.validateSync(
+                        {
+                            workout: this.workout.description,
+                        },
+                        { abortEarly: false})
+
+            axios({
+                url: 'http://localhost:3000/exercises',
+                method: 'POST',
+            })
+            .then((response) => {
+                console.log("Chegamos no then")
+                        if(response.ok === false) {
+                            throw new Error()
+                        }
+                        return response.json()})
+                        .then(() => {
+                        alert('Exercício Cadastrado com sucesso!')
+                        })
+                    .catch(() => {
+                        alert("Falha ao concluir o cadastro do exercício")
+                    })
+        } catch (error) {
+                        this.errors = captureErrorYup(error)
+                    }
+        },
+
+        exibirexercicio(){
+            axios ({
+                url:'http://localhost:3000/exercises',
+                method: 'GET',
+            })
+        .then((response) => {
+            this.workouts = response.data.workouts
+        })
+        .catch(() => {
+            console.log("Deu ruim")
+        })
+        }},
 
     mounted() {
         this.exibirexercicio()
-    },
-    methods: {
-    exibirexercicio(){
-        axios ({
-            url:'http://localhost:3000/exercises',
-            method: 'GET',
-        })
-    .then((response) => {
-        this.students = response.data.students
-    })
-    .catch(() => {
-        console.log("Deu ruim")
-    })
-},
-}}
+    }
+    }
 </script>
