@@ -25,7 +25,7 @@
 
         <div class="singup-element">
             <label for="password">Senha</label>
-            <input id="password" v-model="password">
+            <input id="password" v-model="password" type="password">
             {{ this.errors.password }}
         </div>
 
@@ -33,7 +33,7 @@
 
         <div class="singup-element">
             <label for="confirmpassword">Confirme a senha</label>
-            <input id="confirmpassword" v-model="confirmpassword">
+            <input id="confirmpassword" v-model="confirmpassword" type="password">
             {{ this.errors.confirmpassword }}
         </div>
 
