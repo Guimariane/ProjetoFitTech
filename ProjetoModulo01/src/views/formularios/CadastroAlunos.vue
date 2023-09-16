@@ -1,65 +1,113 @@
 <template>
     <Menu></Menu>
-    <form @submit.prevent="CadastrarAlunos" ref="cadaluno">
 
-        <h2>Cadastro de Alunos</h2>
+    <h2>Cadastro de Alunos</h2>
 
-        <h3>Dados do Aluno</h3>
+    <v-form v-model="valid" @submit.prevent="CadastrarAlunos" ref="cadaluno">
+        <v-container>
+            <v-row>
+                <v-col cols="12" md="12"><h3>Dados do Aluno</h3></v-col>
+            </v-row>
+        </v-container>
+        <v-container>
+            <v-row>
+                <v-col cols="12" md="6">
+                <v-text-field v-model="fullname" label="Nome Completo" id="fullname"></v-text-field>
+                <v-span>{{ this.errors.fullname }}</v-span>
+                </v-col>
 
-        <div class="registerstudent-element">
-            <label for="fullname">Nome Completo</label>
-            <input id="fullname" :reset="reset" v-model="fullname">
-            {{ this.errors.fullname }}
-            <label for="email">Email</label>
-            <input id="email" :reset="reset" v-model="email">
-            {{ this.errors.email }}
-            <label for="contact">Contato</label>
-            <input id="contact" :reset="reset" v-model="contact">
-            {{ this.errors.contact }}
-            <label for="date_birth">Data de Nascimento</label>
-            <input type="date" id="date_birth" :reset="reset" v-model="date_birth">
-            {{ this.errors.date_birth }}
-        </div>
+                <v-col cols="12" md="6">
+                <v-text-field v-model="email" label="Email" id="email"></v-text-field>
+                <v-span>{{ this.errors.email }}</v-span>
+                </v-col>
+            </v-row>
 
-        <br>
+            <v-row>
+                <v-col cols="12" md="6">
+                <v-text-field v-model="contact" label="Contato" id="contact"></v-text-field>
+                <v-span>{{ this.errors.contact }}</v-span>
+                </v-col>
 
-        <h3>Endereço do Aluno</h3>
+                <v-col cols="12" md="6">
+                <v-text-field v-model="date_birth" label="Data de Nascimento" id="date_birth" type="date"></v-text-field>
+                <v-span>{{ this.errors.date_birth }}</v-span>
+                </v-col>
+            </v-row>
+        </v-container>
 
-        <div class="addressstudent-element">
-            <label for="cep">CEP</label>
-            <input id="cep" :reset="reset" v-model="cep">
-            <button type="button" @click="buscarCEP">Buscar CEP</button>
-            <span>{{ this.errors.cep }}</span>
-            <label for="street">Logradouro</label>
-            <input id="street" :reset="reset" v-model="street">
-            {{ this.errors.street }}
-            <label for="number">Número</label>
-            <input id="number" :reset="reset" v-model="number">
-            {{ this.errors.number }}
-            <label for="complement">Complemento</label>
-            <input id="complement" :reset="reset" v-model="complement">
-            {{ this.errors.complement }}
-            <label for="neighborhood">Bairro</label>
-            <input id="neighborhood" :reset="reset" v-model="neighborhood">
-            {{ this.errors.neighborhood }}
-            <label for="city">Cidade</label>
-            <input id="city" :reset="reset" v-model="city">
-            {{ this.errors.city }}
-            <label for="province">Estado</label>
-            <input id="province" :reset="reset" v-model="province">
-            {{ this.errors.province }}
-        </div>
+        <v-container>
+            <v-row>
+                <v-col cols="12" md="12"><h3>Endereço do Aluno</h3></v-col>
+            </v-row>
+            </v-container>
 
-        <br>
+            <v-container>
+            <v-row>
+                <v-col cols="12" md="3">
+                <v-text-field v-model="cep" label="CEP" id="cep"></v-text-field>
+                <v-span>{{ this.errors.cep }}</v-span>
+                </v-col>
 
-        <button id="concluircadastro" type="submit">Cadastrar Aluno</button>
+                <v-col cols="12" md="3">
+                    <v-btn density= "default" size="x-large" @click="buscarCEP">Buscar CEP</v-btn>
+                </v-col>
 
-    </form>
+                <v-col cols="12" md="6">
+                <v-text-field v-model="street" label="Logradouro" id="street"></v-text-field>
+                <v-span>{{ this.errors.street }}</v-span>
+                </v-col>
+            </v-row>
+        </v-container>
+
+        <v-container>
+            <v-row>
+                <v-col cols="12" md="4">
+                <v-text-field v-model="number" label="Número" id="number"></v-text-field>
+                <v-span>{{ this.errors.number }}</v-span>
+                </v-col>
+
+                <v-col cols="12" md="4">
+                <v-text-field v-model="complement" label="Complemento" id="complemento"></v-text-field>
+                <v-span>{{ this.errors.complement }}</v-span>
+                </v-col>
+
+                <v-col cols="12" md="4">
+                <v-text-field v-model="neighborhood" label="Bairro" id="neighborhood"></v-text-field>
+                <v-span>{{ this.errors.neighborhood }}</v-span>
+                </v-col>
+
+            </v-row>
+        </v-container>
+
+        <v-container>
+            <v-row>
+                <v-col cols="12" md="6">
+                <v-text-field v-model="city" label="Cidade" id="city"></v-text-field>
+                <v-span>{{ this.errors.city }}</v-span>
+                </v-col>
+
+                <v-col cols="12" md="6">
+                <v-text-field v-model="province" label="Estado" id="province"></v-text-field>
+                <v-span>{{ this.errors.province }}</v-span>
+                </v-col>
+
+            </v-row>
+            </v-container>
+
+            <v-container>
+            <v-row>
+                <v-col cols="12" md="4">
+                    <v-btn density= "default" size="x-large" type="submit">Cadastrar Aluno</v-btn>
+                </v-col>
+            </v-row>
+        </v-container>
+
+    </v-form>
 </template>
 
 <script>
 
-import Menu from '../menu/Menu.Vue';
+import Menu from '../menu/Menu.vue';
 import * as yup from 'yup'
 import {captureErrorYup} from '../../utils/generalfunctions'
 import axios from 'axios'
@@ -167,7 +215,29 @@ import axios from 'axios'
                     }
                     }
                     
-                    }},
+                    }
+                
+    /* deletarPost(id) {
+      const token = localStorage.getItem('instagram_token')
+
+      axios({
+        url: 'http://localhost:3000/api/posts/' + id,
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearen ${token}`
+        }
+      })
+        .then(() => {
+          alert('Deletado com sucesso')
+          // atualizar posts
+          this.loadPosts()
+        })
+        .catch(() => {
+          alert('erro ao deletar o post ')
+        })
+    } */
+                
+                },
             components: {
                 Menu
             }}
