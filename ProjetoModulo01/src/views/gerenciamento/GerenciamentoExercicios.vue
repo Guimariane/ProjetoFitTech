@@ -1,32 +1,40 @@
 <template>
-   <div>
-        <h2>Exercícios</h2>
+    <v-container>
+    <v-row>
+        <v-col cols="12" md="2">
+            <h2>Exercícios</h2>
+        </v-col>
+    </v-row>
+    </v-container>
 
-        <v-sheet width="300" class="mx-auto">
-            <v-form @submit.prevent = "CadastrarExercicio">
-                <v-text-field
-                    v-model="firstName"
-                ></v-text-field>
-                <v-btn type="submit" block class="mt-2">Cadastrar</v-btn>
-            </v-form>
-         </v-sheet>
+    <v-form @submit.prevent="CadastrarExercicio">
+        <v-container>
+            <v-row>
+                <v-col cols="12" md="10">
+                    <v-text-field v-model="description" label="Digite seu exercício"></v-text-field>
+                </v-col>
+                <v-col>
+                    <v-btn cols="12" md="2">Cadastrar</v-btn>
+                </v-col>
+            </v-row>
+        </v-container>
+    </v-form>
 
+    <v-container>
         <v-table fixed-header>
             <thead>
-            <tr>
-                <th class="text-left">
-                Nome
-                </th>
-            </tr>
+                <tr>
+                    <th class="text-left">Nome</th>
+                </tr>
             </thead>
             <tbody>
-            <tr v-for="workout in workouts" :key="workout.id">
-                <td>{{ workout.description }} </td>
-            </tr>
+                <tr v-for="workout in workouts" :key="workout.id">
+                    <td>{{ workout.description }} </td>
+                </tr>
             </tbody>
-
         </v-table>
-   </div> 
+    </v-container>
+
 </template>
 
 <script>
