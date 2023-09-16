@@ -56,6 +56,7 @@ export default {
         amount_exercises: 0,
         amount_students: 0,
         user: ''
+
       }
   },
 
@@ -67,7 +68,7 @@ export default {
     })
     .then(response => {
       console.log(response.data)
-      localStorage.getItem('sessions_name')
+      this.user = localStorage.getItem('sessions_name')
       this.amount_exercises = response.data.amount_exercises
       this.amount_students = response.data.amount_students
     })
@@ -75,6 +76,7 @@ export default {
   },
   mounted() {
     this.InfoDashboard()
+    this.user
 }}
 </script>
 
