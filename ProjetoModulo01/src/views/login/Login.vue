@@ -1,5 +1,5 @@
 <template>  
-    <form @submit="validateuser" class="login">
+    <form @submit.prevent="validateuser" class="login">
 
         <div class="logo">
             <img src= "../../assets/halter.png">
@@ -15,7 +15,7 @@
         <br>
 
         <div>
-            <input placeholder="Digite a sua senha" v-model="password">
+            <input placeholder="Digite a sua senha" v-model="password" type="password">
         </div>
 
         <br>
@@ -36,6 +36,9 @@
   
   
   <script>
+
+  import axios from 'axios'
+
     export default {
       data () {
         return {
@@ -65,8 +68,8 @@
               }
             })
             .then((response) => {
-              local.Storage.setItem('sessions_token', response.data.token)
-              local.Storage.setItem('sessions_name', response.data.name)
+              localStorage.setItem('sessions_token', response.data.token)
+              localStorage.setItem('sessions_name', response.data.name)
 
               alert("Login realizado com sucesso! Redirecionando para a Home...")
               this.$router.push('/home')
@@ -136,9 +139,9 @@
       font-size: 14px;
       color: white;
       font-weight: bold;
-      height: 40px;
+/*      height: 40px;
       width: 80px;
-      margin-bottom: 30px;
+      margin-bottom: 30px; */
     }
 
     #cadastro{
