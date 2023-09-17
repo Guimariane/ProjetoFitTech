@@ -1,58 +1,44 @@
 <template>
-    <form @submit.prevent="criarCadastro">
-
-        <div class="logo">
-            <img src= "../../assets/halter.png">
-        </div>
-
+    
         <h2>Crie a sua conta aqui!</h2>
 
-        <div class="singup-element">
-            <label for="name">Nome Completo</label>
-            <input id="name" v-model="name">
-            {{ this.errors.name }}
-        </div>
+        <v-form @submit.prevent="criarCadastro" ref="login">
+            <v-container class="d-flex justify-center">
+                <v-sheet width="500">
+                    <v-row>
+                        <v-text-field label="Nome Completo" v-model="name"></v-text-field>
+                        <v-span>{{ this.errors.name }}</v-span>
+                    </v-row>
 
-        <br>
+                    <v-row>
+                        <v-text-field label="E-mail" v-model="email"></v-text-field>
+                        <v-span>{{ this.errors.email }}</v-span>
+                    </v-row>
 
-        <div class="singup-element">
-            <label for="email">Email</label>
-            <input id="email" v-model="email">
-            {{ this.errors.email }}
-        </div>
+                    <v-row>
+                        <v-text-field label="Senha" v-model="password" type="password"></v-text-field>
+                        <v-span>{{ this.errors.password }}</v-span>
+                    </v-row>
 
-        <br>
+                    <v-row>
+                        <v-text-field label="Confirme a Senha" v-model="confirmpassword" type="password"></v-text-field>
+                        <v-span>{{ this.errors.confirmpassword }}</v-span>
+                    </v-row>
 
-        <div class="singup-element">
-            <label for="password">Senha</label>
-            <input id="password" v-model="password" type="password">
-            {{ this.errors.password }}
-        </div>
+                    <v-row>
+                        <v-select label="Plano" v-model="type_plan" :items="plan"></v-select>
+                    </v-row>
 
-        <br>
+                    <v-row>
+                        <v-btn block type="Submit">Cadastrar</v-btn>
+                    </v-row>
 
-        <div class="singup-element">
-            <label for="confirmpassword">Confirme a senha</label>
-            <input id="confirmpassword" v-model="confirmpassword" type="password">
-            {{ this.errors.confirmpassword }}
-        </div>
-
-        <br>
-        
-        <div class="singup-element">
-            <label for="type_plan">Selecione o seu plano</label>
-            <select id="type_plan" v-model="type_plan">
-                <option value="bronze">Bronze</option>
-                <option value="silver">Prata</option>
-                <option value="gold">Ouro</option>
-            </select>
-        </div>
-
-        <button id="concluircadastro" type="submit">Concluir Cadastro</button>
-
-        <button id="voltar"><router-link to="/">Voltar</router-link></button>
-
-    </form>
+                    <v-row>
+                        <v-btn block color="white"><router-link to='/'>Voltar</router-link></v-btn>
+                    </v-row>
+                </v-sheet>
+            </v-container>
+        </v-form>
 </template>
 
 <script>
@@ -67,7 +53,19 @@ import {captureErrorYup} from '../../utils/generalfunctions'
                 email: '',
                 password: '',
                 confirmpassword: '',
-                type_plan: 'bronze',
+                type_plan: 'Bronze',
+                plan:  [{
+                title: 'Bronze',
+                value: 'bronze'
+            },
+            {
+                title: 'Prata',
+                value: 'silver'
+            },
+            {
+                title: 'Ouro',
+                value: 'gold'
+            }],
                 errors: {}
             }
         },
@@ -130,46 +128,32 @@ import {captureErrorYup} from '../../utils/generalfunctions'
         }
 </script>
 
-<style>
+<style scoped>
+*{
+    text-decoration: none;
+}
+
 h2 {
     font-family: Arial, Helvetica, sans-serif;
+    color:darkmagenta;
+    text-align: center;
+    margin-top: 20px
 }
 
 form{
-    margin: 40px auto;
-    width: 50%;
+   margin: 10px auto;
+    width: 85%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: darkgray;
 }
 
-.singup-element {
-    display: flex;
-    flex-direction: column;
-    height: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
-}
-
-#concluircadastro {
-    background-color: blueviolet;
-    border-color: blueviolet;
+button {
+    background-color: darkmagenta;
+    border-color: darkmagenta;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 14px;
     color: white;
-    font-weight: bold;
-    height: 40px;
-    width: 200px;
-    margin-bottom: 30px;
-}
-
-#voltar {
-    background-color: white;
-    border-color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 14px;
-    color: blueviolet;
     font-weight: bold;
     height: 40px;
     width: 200px;
