@@ -85,7 +85,8 @@
      },
 
      BuscarAluno() {
-        console.log("Vamos pesquisar")
+        this.students = response.data.students
+        this.studentsfilter = this.students.filter((item) => item.name === student.name)
      }
     
     },
