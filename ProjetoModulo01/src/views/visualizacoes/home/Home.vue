@@ -23,7 +23,7 @@
 
     <v-card-actions>
       <v-btn variant="outlined">
-        <router-link to="/cadastrotreinos">Adicionar</router-link>
+        <router-link to="/gerenciamentoexercicios">Adicionar</router-link>
       </v-btn>
     </v-card-actions>
   </v-card>
