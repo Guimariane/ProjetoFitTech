@@ -153,6 +153,7 @@ import axios from 'axios'
                     
                     .then(() => {
                         alert('Treino Cadastrado com sucesso!')
+                        this.$refs.cadtreinoaluno.reset()
                         })
                     .catch(() => {
                         alert("Falha ao concluir o cadastro do treino")
