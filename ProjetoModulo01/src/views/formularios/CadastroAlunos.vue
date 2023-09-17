@@ -1,9 +1,13 @@
 <template>
     <Menu></Menu>
 
-    <h2>Cadastro de Alunos</h2>
-
     <v-form v-model="valid" @submit.prevent="CadastrarAlunos" ref="cadaluno">
+        <v-container>
+            <v-row>
+                <h2>Cadastro de Alunos</h2>
+            </v-row>
+        </v-container>
+
         <v-container>
             <v-row>
                 <v-col cols="12" md="12"><h3>Dados do Aluno</h3></v-col>
@@ -217,25 +221,6 @@ import axios from 'axios'
                     
                     }
                 
-    /* deletarPost(id) {
-      const token = localStorage.getItem('instagram_token')
-
-      axios({
-        url: 'http://localhost:3000/api/posts/' + id,
-        method: 'DELETE',
-        headers: {
-          Authorization: `Bearen ${token}`
-        }
-      })
-        .then(() => {
-          alert('Deletado com sucesso')
-          // atualizar posts
-          this.loadPosts()
-        })
-        .catch(() => {
-          alert('erro ao deletar o post ')
-        })
-    } */
                 
                 },
             components: {
@@ -244,10 +229,5 @@ import axios from 'axios'
 </script>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: 0;
-}
 
 </style>

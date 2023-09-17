@@ -1,37 +1,40 @@
 <template>  
-    <form @submit.prevent="validateuser" class="login">
 
-        <div class="logo">
-            <img src= "../../assets/halter.png">
-        </div>
-  
-      <h1>Faça o seu login aqui!</h1>
-      <p>Preencha as informações abaixo!</p>
-  
-        <div>
-            <input placeholder="Digite o seu e-mail" v-model="email">
-        </div>
+<h1>Faça o seu login aqui!</h1>
+<br>
+  <v-form @submit.prevent="validateuser">
+    <v-container class="d-flex justify-center">
+      <v-sheet width="300">
+      <v-row>
+        <v-text-field label="Digite o seu email" v-model="email"></v-text-field>
+      </v-row>
 
-        <br>
+      <v-row>
+        <v-text-field label="Digite a sua senha" v-model="password" type="password"></v-text-field>
+      </v-row>
 
-        <div>
-            <input placeholder="Digite a sua senha" v-model="password" type="password">
-        </div>
+      <v-row class="error-login">
+        <p v-if="errorInputEmail">{{ errorInputEmail }}</p>
+        <p v-if="errorInputPassword">{{ errorInputPassword }}</p>
+      </v-row>
 
-        <br>
-  
-        <div class="error-login">
-          <ul>
-            <li v-if="errorInputEmail">{{ errorInputEmail }}</li>
-            <li v-if="errorInputPassword">{{ errorInputPassword }}</li>
-          </ul>
-        </div>
-  
-        <button type="submit">Entrar</button>
-  
+      <br>
+
+      <v-row>
+        <v-btn block type="submit">Entrar</v-btn>
+      </v-row>
+
+      <v-row>
         <p>Ainda não tem uma conta?</p>
-        <button id="cadastro"><router-link to="/cadastro">Cadastre-se aqui!</router-link></button>
-    </form>
+      </v-row>
+
+      <v-row>
+        <v-btn block color="white"><router-link to="/cadastro">Cadastre-se aqui!</router-link></v-btn>
+      </v-row>
+      
+    </v-sheet>
+    </v-container>
+  </v-form>
 </template>
   
   
@@ -84,8 +87,12 @@
           
   </script>
   
-  <style>
-    .error-login{
+  <style scoped>
+
+  *{
+    text-decoration: none;
+  }
+   .error-login{
       width: 300px;
       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
       font-size: 12px;
@@ -93,31 +100,10 @@
       font-weight: bold;
     }
   
-    .login{
-        display: flex;
-        flex-direction: column;
-        background-color: darkgrey;
-        font-family: Arial, Helvetica, sans-serif;
-        width: 400px;
-        justify-content: center;
-        align-items: center;
-    }
-  
-    .logo{
-      display: flex;
-      justify-content: center;
-    }
-  
-    img {
-      width: 2cm;
-      height: 2cm;
-      margin-top: 20px;
-    }
-  
     h1{
       text-align: center;
-      padding-top: 20px;
-      margin-top: 10px;
+      margin-top: 20px;
+      color: darkmagenta
     }
   
     form {
@@ -133,20 +119,8 @@
     }
   
     button{
-      background-color: blueviolet;
-      border-color: blueviolet;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      font-size: 14px;
-      color: white;
-      font-weight: bold;
-/*      height: 40px;
-      width: 80px;
-      margin-bottom: 30px; */
-    }
-
-    #cadastro{
-      background-color: blueviolet;
-      border-color: blueviolet;
+      background-color: darkmagenta;
+      border-color: darkmagenta;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       font-size: 14px;
       color: white;
@@ -155,4 +129,5 @@
       width: 200px;
       margin-bottom: 30px;
     }
+
   </style>

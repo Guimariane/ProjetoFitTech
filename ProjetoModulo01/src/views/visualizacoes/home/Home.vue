@@ -1,13 +1,17 @@
 <template>
-    <div class="d-flex flex-row justify-space-around mb-6 bg-surface-variant">
-      <h2>Olá, {{ user }}</h2>
+<Menu></Menu>
+<v-container>
+<v-row>
+  <v-col>
+    <h2>Olá, {{ user }}</h2>
+  </v-col>
+  </v-row>
+</v-container>
 
-    <br>
-
-    <v-card
-    class= "max-auto"
-    variant="outlined"
-  >
+  <v-container>
+    <v-row>
+      <v-col cols="12" md="6">
+    <v-card variant="outlined">
     <v-card-item>
       <div>
         <div class="text-h6 mb-1">
@@ -19,14 +23,15 @@
 
     <v-card-actions>
       <v-btn variant="outlined">
-        <router-link to="/cadastroalunos">Adicionar</router-link>
+        <router-link to="/cadastrotreinos">Adicionar</router-link>
       </v-btn>
     </v-card-actions>
   </v-card>
+</v-col>
+  <br>
 
-  <v-card
-    class="max-auto"
-    variant="outlined"
+  <v-col cols="12" md="6">
+  <v-card variant="outlined"
   >
     <v-card-item>
       <div>
@@ -38,17 +43,19 @@
     </v-card-item>
 
     <v-card-actions>
-      <v-btn     
-        variant="outlined">
-        <router-link to="/cadastrotreinos">Adicionar</router-link>
+      <v-btn variant="outlined">
+        <router-link to="/cadastroalunos">Adicionar</router-link>
       </v-btn>
     </v-card-actions>
   </v-card>
-  </div>
+</v-col>
+</v-row>
+</v-container>
 </template>
 
 <script>
 import axios from 'axios'
+import Menu from '../../menu/Menu.vue'
 
 export default {
   data () {
@@ -77,9 +84,20 @@ export default {
   mounted() {
     this.InfoDashboard()
     this.user
+},
+components: {
+  Menu
 }}
 </script>
 
-<style>
+<style scoped>
+
+h2{
+  color: darkmagenta;
+}
+
+button{
+  background-color: white;
+}
 
 </style>
