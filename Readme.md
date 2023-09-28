@@ -85,11 +85,11 @@ npm install yup
 ----------
 
 ### Telas confeccionadas para a execução desse projeto:
-![DevInHouse - Tela 1 - Login](https://github.com/Guimariane/ProjetoFinTech/assets/47523514/e95f634f-631f-4380-b384-859a04c91187)
-![DevInHouse - Tela 2 - Cadastro](https://github.com/Guimariane/ProjetoFinTech/assets/47523514/c0bd8df5-1240-4a0a-895f-11a8617e7c91)
-![DevInHouse - Tela 3 - Home](https://github.com/Guimariane/ProjetoFinTech/assets/47523514/e39b8e5e-43c5-47a1-8da7-6f83bd90d6e8)
-![DevInHouse - Tela 4 - Cadastro Exercicíos](https://github.com/Guimariane/ProjetoFinTech/assets/47523514/0e31d891-74b5-4a0f-bea9-a97b34b73efe)
-![DevInHouse - Tela 5 - Cadastro Alunos](https://github.com/Guimariane/ProjetoFinTech/assets/47523514/0edc3454-c8ed-4f79-b4ab-0c199f06a443)
-![DevInHouse - Tela 6 - Gerenciamento Alunos](https://github.com/Guimariane/ProjetoFinTech/assets/47523514/34c213e3-ee20-4efa-a0ba-851056177e24)
-![DevInHouse - Tela 7 - Montagem de Treinos](https://github.com/Guimariane/ProjetoFinTech/assets/47523514/d0f27308-cda9-4270-bd5d-d7539ae6fd75)
-![DevInHouse - Tela 8 - Gestão de Treinos](https://github.com/Guimariane/ProjetoFinTech/assets/47523514/5fa10367-96bf-4038-a31f-8f21c56742b4)
+![DevInHouse - Tela 1 - Login](https://github.com/Guimariane/ProjetoFitTech/assets/47523514/c135aeca-1122-440d-bbcb-f0a0c89ee455)
+![DevInHouse - Tela 2 - Cadastro](https://github.com/Guimariane/ProjetoFitTech/assets/47523514/52111d53-9f32-4a64-89e1-b4817c3acfab)
+![DevInHouse - Tela 3 - Home](https://github.com/Guimariane/ProjetoFitTech/assets/47523514/6d6b9319-7891-495e-8e0b-dcea5b2671dc)
+![DevInHouse - Tela 4 - Cadastro Exercicíos](https://github.com/Guimariane/ProjetoFitTech/assets/47523514/24cc8d73-a6dd-465c-8b74-bbec1173ac1b)
+![DevInHouse - Tela 5 - Cadastro Alunos](https://github.com/Guimariane/ProjetoFitTech/assets/47523514/e1e41228-ba7f-498e-a7da-76abdffd29e2)
+![DevInHouse - Tela 6 - Gerenciamento Alunos](https://github.com/Guimariane/ProjetoFitTech/assets/47523514/f1317cbf-4700-4576-8785-b507dc1419f0)
+![DevInHouse - Tela 7 - Montagem de Treinos](https://github.com/Guimariane/ProjetoFitTech/assets/47523514/5437c6d4-828e-44a5-879a-94708def4445)
+![DevInHouse - Tela 8 - Gestão de Treinos](https://github.com/Guimariane/ProjetoFitTech/assets/47523514/1638e42d-c76c-4a14-b71a-9c02b1f04b49)
